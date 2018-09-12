@@ -18,15 +18,19 @@ apply plugin: 'io.spring.dependency-management'
 group = 'org.hson'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
 	mavenCentral()
 }
 
 
+
+
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
 	runtime('com.h2database:h2')
+	compileOnly('org.projectlombok:lombok:1.16.20')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
