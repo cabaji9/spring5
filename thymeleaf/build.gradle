@@ -28,10 +28,11 @@ repositories {
 
 
 dependencies {
+		compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
+	testCompile 'com.google.code.gson:gson:2.8.5'
 	runtime('com.h2database:h2')
 	compileOnly('org.projectlombok:lombok:1.16.20')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-    testCompile 'com.google.code.gson:gson:2.8.5'
 }
