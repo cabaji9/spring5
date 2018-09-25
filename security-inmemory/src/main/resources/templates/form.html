@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+</head>
+<body>
+
+    <form method="post" th:action="@{/form}" th:object="${user}">
+
+        first name : <input type="text" name="firstName" th:field="*{firstName}" />
+        <span class="validationError" th:if="${#fields.hasErrors('firstName')}"
+        th:errors="*{firstName}">First Name error </span>
+        last name : <input type="text" name="lastName" />
+
+
+        <input type="submit" value="Register"/>
+
+    </form>
+
+
+</body>
+</html>

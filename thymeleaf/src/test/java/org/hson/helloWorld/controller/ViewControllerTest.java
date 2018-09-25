@@ -27,7 +27,7 @@ public class ViewControllerTest {
     @Test
     public void testHomePage() throws Exception{
 
-        mockmvc.perform(get("/view")).andExpect(status().isOk()).andExpect(view().name("home")
+        mockmvc.perform(get("/")).andExpect(status().isOk()).andExpect(view().name("home")
         ).andDo(print()).andExpect(content().string(containsString("HELLO!")));
     }
 
