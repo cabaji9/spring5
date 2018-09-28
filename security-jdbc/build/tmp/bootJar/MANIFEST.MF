@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Start-Class: org.hson.app.config.AppConfigApplication
+Main-Class: org.springframework.boot.loader.JarLauncher
+

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.hson.helloWorld.AppConfigApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-09-27T14:02:42" hostname="hsPro.local" time="0.913">
+  <properties/>
+  <testcase name="testSaveFind" classname="org.hson.helloWorld.AppConfigApplicationTests" time="0.913"/>
+  <system-out><![CDATA[09:02:31,190 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+09:02:31,190 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.groovy]
+09:02:31,190 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/Users/User/java/codigo/personal/spring/spring5/security-jdbc/build/resources/test/logback.xml]
+09:02:31,191 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs multiple times on the classpath.
+09:02:31,191 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs at [file:/Users/User/java/codigo/personal/spring/spring5/security-jdbc/build/resources/test/logback.xml]
+09:02:31,191 |-WARN in ch.qos.logback.classic.LoggerContext[default] - Resource [logback.xml] occurs at [file:/Users/User/java/codigo/personal/spring/spring5/security-jdbc/build/resources/main/logback.xml]
+09:02:31,287 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+09:02:31,288 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+09:02:31,295 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+09:02:31,356 |-WARN in ch.qos.logback.core.ConsoleAppender[STDOUT] - This appender no longer admits a layout as a sub-component, set an encoder instead.
+09:02:31,356 |-WARN in ch.qos.logback.core.ConsoleAppender[STDOUT] - To ensure compatibility, wrapping your layout in LayoutWrappingEncoder.
+09:02:31,356 |-WARN in ch.qos.logback.core.ConsoleAppender[STDOUT] - See also http://logback.qos.ch/codes.html#layoutInsteadOfEncoder for details
+09:02:31,357 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.springframework] to ERROR
+09:02:31,357 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.springframework] to false
+09:02:31,358 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[org.springframework]
+09:02:31,358 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.hson] to DEBUG
+09:02:31,359 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hson] to false
+09:02:31,359 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[org.hson]
+09:02:31,359 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to INFO
+09:02:31,359 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+09:02:31,359 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+09:02:31,360 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@3d5fd2b6 - Registering current configuration as safe fallback point
+
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.0.4.RELEASE)
+
+2018-09-27 09:02:32 [Test worker] INFO  o.h.h.AppConfigApplicationTests - Starting AppConfigApplicationTests on hsPro.local with PID 63681 (started by User in /Users/User/java/codigo/personal/spring/spring5/security-jdbc)
+2018-09-27 09:02:32 [Test worker] DEBUG o.h.h.AppConfigApplicationTests - Running with Spring Boot v2.0.4.RELEASE, Spring v5.0.8.RELEASE
+2018-09-27 09:02:32 [Test worker] INFO  o.h.h.AppConfigApplicationTests - No active profile set, falling back to default profiles: default
+2018-09-27 09:02:36 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2018-09-27 09:02:36 [Test worker] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2018-09-27 09:02:36 [Test worker] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-09-27 09:02:36 [Test worker] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.17.Final}
+2018-09-27 09:02:36 [Test worker] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-09-27 09:02:36 [Test worker] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-09-27 09:02:36 [Test worker] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-09-27 09:02:37 [Test worker] INFO  o.h.t.s.internal.SchemaCreatorImpl - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@2738637c'
+2018-09-27 09:02:42 [Test worker] INFO  o.h.h.AppConfigApplicationTests - Started AppConfigApplicationTests in 10.307 seconds (JVM running for 11.689)
+2018-09-27 09:02:42 [Test worker] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /user/findAll
+       Parameters = {}
+          Headers = {}
+             Body = <no character encoding set>
+    Session Attrs = {SPRING_SECURITY_CONTEXT=org.springframework.security.core.context.SecurityContextImpl@f4804b85: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@f4804b85: Principal: org.springframework.security.core.userdetails.User@f814f32e: Username: usuario; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_USER; Credentials: [PROTECTED]; Authenticated: true; Details: null; Granted Authorities: ROLE_USER}
+
+Handler:
+             Type = org.hson.app.controller.rest.UserController
+           Method = public java.lang.Iterable<org.hson.app.model.User> org.hson.app.controller.rest.UserController.findAll()
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = {Content-Type=[application/json;charset=UTF-8], X-Content-Type-Options=[nosniff], X-XSS-Protection=[1; mode=block], Cache-Control=[no-cache, no-store, max-age=0, must-revalidate], Pragma=[no-cache], Expires=[0], X-Frame-Options=[DENY]}
+     Content type = application/json;charset=UTF-8
+             Body = [{"id":1,"firstName":"uno","lastName":"dos","username":"usuario","password":"$2a$10$cq6zqGVcpH731Vt22i9Z/erHLMG5pEFg2Ie68obEWXPXLCLlXjg9a","enabled":1},{"id":2,"firstName":"tres","lastName":"cuatro","username":"admin","password":"$2a$10$cq6zqGVcpH731Vt22i9Z/erHLMG5pEFg2Ie68obEWXPXLCLlXjg9a","enabled":1},{"id":3,"firstName":"lala","lastName":null,"username":"test_user","password":null,"enabled":null}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

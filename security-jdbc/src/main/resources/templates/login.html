@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login in</title>
+</head>
+<body>
+
+<h2>LOGIN</h2>
+<div th:if="${error}">
+    Unable to login check credentials
+</div>
+
+
+    <form method="post" th:action="@{/login}" >
+
+        USERNAME: <input type="text" name="username" id="username" />
+        PASSWORD : <input name="password" type="password" id="password" />
+
+
+        <input type="submit" value="Login"/>
+
+    </form>
+
+
+</body>
+</html>
