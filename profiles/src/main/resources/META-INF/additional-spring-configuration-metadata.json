@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "custom.property.salute",
+      "type": "java.lang.String",
+      "description": "Indicates the salute of the view."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+logging:
+  level:
+    org:
+      hson: debug
+
+custom:
+  property:
+    salute: Hola mundo este es el nombre en dev
+
+---
+
+spring:
+  profiles: prod
+
+
+  datasource:
+    url: jdbc:mysql://localhost/spring_test
+    username: spring
+    password: spring
+    driver-class-name: com.mysql.jdbc.Driver
+    initialization-mode: always
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+custom:
+  property:
+    salute: Hola mundo este es el nombre en prod
+
+logging:
+  level:
+    org:
+      hson: info
