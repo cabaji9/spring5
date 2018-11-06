@@ -4,16 +4,14 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Scheduler;
 import reactor.core.scheduler.Schedulers;
 import reactor.test.StepVerifier;
 import reactor.util.function.Tuple2;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Stream;
 
 /**
@@ -223,6 +221,82 @@ public class FluxTest {
                 expectNextMatches(p -> playerList.contains(p)).verifyComplete();
     }
 
+
+    @Test
+    public void buffer(){
+
+        Flux<String> fruitFlux = Flux.just("apple","orange","banana","kiwi");
+        Flux<List<String>> bufferedFlux = fruitFlux.buffer(3);
+
+        bufferedFlux.subscribe(f -> log.info("here is {}", f));
+
+        StepVerifier.create(bufferedFlux).expectNext(Arrays.asList("apple","orange","banana")).
+                expectNext(Arrays.asList("kiwi")).verifyComplete();
+
+    }
+
+
+    @Test
+    public void bufferFlatMap(){
+
+        Flux<String> fruitFlux = Flux.just("apple","orange","banana","kiwi");
+        fruitFlux.buffer(3).flatMap(x -> Flux.fromIterable(x).map(y -> y.toUpperCase()).subscribeOn(Schedulers.parallel()).log()).subscribe(f -> log.info("here is {}", f));
+
+    }
+
+    @Test
+    public void collectList(){
+        Flux<String> fruitFlux = Flux.just("apple","orange","banana","kiwi");
+        fruitFlux.subscribe(f -> log.info("here is {}", f));
+        Mono<List<String>> fruitListMono = fruitFlux.collectList();
+        StepVerifier.create(fruitListMono).expectNext(Arrays.asList("apple","orange","banana","kiwi")).verifyComplete();
+    }
+
+    @Test
+    public void collectMap(){
+
+        Flux<String> fruitFlux = Flux.just("apple","orange","banana","kiwi");
+
+        final Counter counter = new Counter();
+        counter.setI(0);
+        Mono<Map<Integer,String>> fruitFluxMonoMap = fruitFlux.collectMap(fruit -> counter.obtainAndAdd()).log();
+
+       // fruitFluxMonoMap.subscribe(f -> log.info("here is {}", f));
+        StepVerifier.create(fruitFluxMonoMap).expectNextMatches(map ->
+             map.size() == 4 && map.get(0).equals("apple")
+                    && map.get(1).equals("orange")
+                    && map.get(2).equals("banana")
+                    && map.get(3).equals("kiwi")
+        ).verifyComplete();
+
+
+    }
+
+    @Test
+    public void all(){
+        Flux<String> animalFlux = Flux.just("aadvark","elephant","koala","eagle","kangaroo");
+
+        Mono<Boolean> hasAMono = animalFlux.all(a -> a.contains("a")).log();
+        StepVerifier.create(hasAMono).expectNext(true).verifyComplete();
+
+        Mono<Boolean> hasKMono = animalFlux.all(a -> a.contains("k")).log();
+        StepVerifier.create(hasKMono).expectNext(false).verifyComplete();
+
+    }
+
+
+    @Test
+    public void any(){
+        Flux<String> animalFlux = Flux.just("aadvark","elephant","koala","eagle","kangaroo");
+
+        Mono<Boolean> hasAMono = animalFlux.any(a -> a.contains("t")).log();
+        StepVerifier.create(hasAMono).expectNext(true).verifyComplete();
+
+        Mono<Boolean> hasKMono = animalFlux.any(a -> a.contains("z")).log();
+        StepVerifier.create(hasKMono).expectNext(false).verifyComplete();
+
+    }
+
 }
 
 @Data
@@ -231,6 +305,16 @@ class Player{
     private final String name;
     private final String lastName;
 
+}
+
+@Data
+class Counter{
+
+    private int i;
+
+    public int obtainAndAdd(){
+        return i++;
+    }
 }
 
 
